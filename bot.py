@@ -18,10 +18,10 @@ class AOFDiscordClient(discord.Client):
         intents.message_content = True
         return intents
 
-    async def on_ready(self):
+    async def on_ready(self) -> None:
         print(f"{self.user} s’est connecté à Discord")
 
-    async def on_message(self, message):
+    async def on_message(self, message: discord.Message) -> None:
         if message.author == self.user:
             return
 
@@ -29,7 +29,7 @@ class AOFDiscordClient(discord.Client):
             await message.channel.send("pong", reference=message)
 
 
-def main():
+def main() -> None:
     client = AOFDiscordClient()
     client.run(TOKEN)
 

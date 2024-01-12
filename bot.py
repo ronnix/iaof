@@ -99,7 +99,7 @@ def main() -> None:
 
     aof_gpt = AOFGPT(
         api_key=os.environ["OPENAI_API_KEY"],
-        system_prompt=(HERE / "system_prompt.md").read_text(),
+        system_prompt=(HERE / "instructions.md").read_text(),
     )
 
     discord_token = os.environ["DISCORD_TOKEN"]

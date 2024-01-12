@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Optional
+import asyncio
 import os
 
 import discord
@@ -32,6 +33,7 @@ class AOFDiscordClient(discord.Client):
 
     async def on_ready(self) -> None:
         print(f"{self.user} s’est connecté à Discord")
+        await self.aof_gpt.create_or_update()
 
     async def on_message(self, message: discord.Message) -> None:
         # On ne se répond pas à soi-même
@@ -45,13 +47,14 @@ class AOFDiscordClient(discord.Client):
         # On signale qu’on va répondre
         async with message.channel.typing():
             # On demande au LLM de produire une réponse
-            response = await self.aof_gpt.reply(message.clean_content)
-            if response is None:
-                response = "Oups, une erreur a eu lieu…"
+            replies = await self.aof_gpt.replies(message)
+            if not replies:
+                replies = ["Oups, une erreur a eu lieu…"]
 
-            # On poste la réponse, en la découpant si elle est trop longue pour un seul message
-            for chunk in chunked(response, MAX_MESSAGE_SIZE):
-                await message.reply(chunk)
+            # On poste les réponses, en les découpant si elles sont trop longues pour un seul message
+            for reply in replies:
+                for chunk in chunked(reply, MAX_MESSAGE_SIZE):
+                    await message.reply(chunk)
 
 
 def chunked(text: str, max_size: int) -> list[str]:
@@ -67,31 +70,95 @@ class AOFGPT:
     L’assistant, basé sur ChatGPT.
     """
 
+    name = "IAOF"
+
     def __init__(
-        self, api_key: str, system_prompt: str, model_name="gpt-4-1106-preview"
+        self,
+        api_key: str,
+        instructions: str,
+        assistant_id: Optional[str] = None,
+        model="gpt-4-1106-preview",
     ) -> None:
         self.openai_client = AsyncOpenAI(api_key=api_key)
-        self.system_prompt = system_prompt
-        self.model_name = model_name
+        self.instructions = instructions
+        self.model = model
+        self.assistant_id = assistant_id
+        self.assistant = None
+        self.threads = {}
 
-    async def reply(self, message: str) -> Optional[str]:
-        completion = await self.openai_client.chat.completions.create(
-            messages=[
-                {
-                    "role": "system",
-                    "content": self.system_prompt,
-                },
-                {
-                    "role": "user",
-                    "content": message,
-                },
-            ],
-            model=self.model_name,
-            max_tokens=1024,
+    async def create_or_update(self):
+        if self.assistant_id is None:
+            self.assistant = await self.create_assistant()
+            self.assistant_id = self.assistant.id
+            print(f"ASSISTANT_ID={self.assistant_id}")
+        else:
+            self.assistant = await self.retrieve_and_update_assistant(self.assistant_id)
+        print("L’assistant est prêt.")
+
+    async def create_assistant(self):
+        print("Création de l’assistant…")
+        assistant = await self.openai_client.beta.assistants.create(
+            name=self.name,
+            instructions=self.instructions,
+            model=self.model,
         )
-        if completion is None:
-            return None
-        return completion.choices[0].message.content
+        return assistant
+
+    async def retrieve_and_update_assistant(self, assistant_id: str):
+        print("Recherche de l’assistant…")
+        assistant = await self.openai_client.beta.assistants.retrieve(
+            assistant_id=assistant_id
+        )
+
+        print("Mise à jour de l’assistant…")
+        assistant = await self.openai_client.beta.assistants.update(
+            assistant_id,
+            name=self.name,
+            instructions=self.instructions,
+            model=self.model,
+        )
+        return assistant
+
+    async def get_or_create_thread(self, discord_message):
+        thread = await self.openai_client.beta.threads.create()
+        message = await self.openai_client.beta.threads.messages.create(
+            thread_id=thread.id,
+            role="user",
+            content=discord_message.clean_content,
+        )
+        return thread, message
+
+    async def replies(self, discord_message) -> list[str]:
+        assert self.assistant is not None
+
+        thread, message = await self.get_or_create_thread(discord_message)
+
+        run = await self.openai_client.beta.threads.runs.create(
+            thread_id=thread.id,
+            assistant_id=self.assistant.id,
+        )
+
+        await self.wait_on_run(run, thread)
+
+        messages = await self.openai_client.beta.threads.messages.list(
+            thread_id=thread.id,
+            order="asc",
+            after=message.id,
+        )
+        return [
+            content.text.value
+            for message in messages.data
+            for content in message.content
+            if content.type == "text"
+        ]
+
+    async def wait_on_run(self, run, thread):
+        while run.status == "queued" or run.status == "in_progress":
+            await asyncio.sleep(0.5)
+            run = await self.openai_client.beta.threads.runs.retrieve(
+                run_id=run.id,
+                thread_id=thread.id,
+            )
 
 
 def main() -> None:
@@ -99,7 +166,8 @@ def main() -> None:
 
     aof_gpt = AOFGPT(
         api_key=os.environ["OPENAI_API_KEY"],
-        system_prompt=(HERE / "instructions.md").read_text(),
+        instructions=(HERE / "instructions.md").read_text(),
+        assistant_id=os.getenv("ASSISTANT_ID"),
     )
 
     discord_token = os.environ["DISCORD_TOKEN"]

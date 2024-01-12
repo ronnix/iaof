@@ -5,10 +5,6 @@ import discord
 from dotenv import load_dotenv
 
 
-load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
-
-
 class AOFDiscordClient(discord.Client):
     def __init__(self) -> None:
         super().__init__(intents=self._intents())
@@ -30,8 +26,12 @@ class AOFDiscordClient(discord.Client):
 
 
 def main() -> None:
+    load_dotenv()
+
+    discord_token = os.environ["DISCORD_TOKEN"]
+
     client = AOFDiscordClient()
-    client.run(TOKEN)
+    client.run(discord_token)
 
 
 if __name__ == "__main__":

@@ -10,6 +10,14 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 
 
 class AOFDiscordClient(discord.Client):
+    def __init__(self) -> None:
+        super().__init__(intents=self._intents())
+
+    def _intents(self) -> discord.Intents:
+        intents = discord.Intents.default()
+        intents.message_content = True
+        return intents
+
     async def on_ready(self):
         print(f"{self.user} s’est connecté à Discord")
 
@@ -22,10 +30,7 @@ class AOFDiscordClient(discord.Client):
 
 
 def main():
-    intents = discord.Intents.default()
-    intents.message_content = True
-
-    client = AOFDiscordClient(intents=intents)
+    client = AOFDiscordClient()
     client.run(TOKEN)
 
 

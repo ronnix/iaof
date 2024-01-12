@@ -97,9 +97,10 @@ class AOFGPT:
 def main() -> None:
     load_dotenv()
 
-    openai_api_key = os.environ["OPENAI_API_KEY"]
-    system_prompt = (HERE / "system_prompt.md").read_text()
-    aof_gpt = AOFGPT(openai_api_key, system_prompt=system_prompt)
+    aof_gpt = AOFGPT(
+        api_key=os.environ["OPENAI_API_KEY"],
+        system_prompt=(HERE / "system_prompt.md").read_text(),
+    )
 
     discord_token = os.environ["DISCORD_TOKEN"]
     client = AOFDiscordClient(aof_gpt)

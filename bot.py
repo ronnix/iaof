@@ -49,7 +49,8 @@ class AOFDiscordClient(discord.Client):
         async with message.channel.typing():
             # On demande au LLM de produire une réponse
             try:
-                response = await self.aof_gpt.reply(message.clean_content)
+                thread = Thread.from_discord_message(message)
+                response = await self.aof_gpt.reply(thread)
             except:
                 logging.exception("Erreur en générant la réponse")
                 response = None
@@ -72,6 +73,23 @@ def chunked(text: str, max_size: int) -> list[str]:
     return splitter.chunks(text, max_size)
 
 
+class Thread:
+    def __init__(self, content: str) -> None:
+        self.content = content
+
+    @classmethod
+    def from_discord_message(cls, message) -> Thread:
+        return cls(content=message.clean_content)
+
+    def to_openai_messages(self) -> list[dict[str, str]]:
+        return [
+            {
+                "role": "user",
+                "content": self.content,
+            }
+        ]
+
+
 class AOFGPT:
     """
     L’assistant, basé sur ChatGPT.
@@ -84,18 +102,15 @@ class AOFGPT:
         self.system_prompt = system_prompt
         self.model_name = model_name
 
-    async def reply(self, message: str) -> Optional[str]:
+    async def reply(self, thread: Thread) -> Optional[str]:
+        messages = [
+            {
+                "role": "system",
+                "content": self.system_prompt,
+            }
+        ] + thread.to_openai_messages()
         completion = await self.openai_client.chat.completions.create(
-            messages=[
-                {
-                    "role": "system",
-                    "content": self.system_prompt,
-                },
-                {
-                    "role": "user",
-                    "content": message,
-                },
-            ],
+            messages=messages,
             model=self.model_name,
             max_tokens=1024,
         )

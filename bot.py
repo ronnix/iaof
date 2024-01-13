@@ -173,7 +173,7 @@ class AOFGPT:
                 if tool_call.type == "function":
                     if tool_call.function.name == "changer_le_style":
                         args = json.loads(tool_call.function.arguments)
-                        return self.changer_le_style(args["style"])
+                        return self.changer_le_style(args["style"].strip())
 
     def changer_le_style(self, style: str) -> str:
         self.current_style = style

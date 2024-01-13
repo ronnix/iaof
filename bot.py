@@ -40,7 +40,9 @@ class AOFDiscordClient(discord.Client):
             return
 
         # On réagit seulement à une mention ou à un message privé
-        if self.user.id not in {member.id for member in message.mentions}:
+        is_mention = self.user.id in {member.id for member in message.mentions}
+        is_dm = message.channel.type == discord.ChannelType.private
+        if not (is_mention or is_dm):
             return
 
         # On signale qu’on va répondre

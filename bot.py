@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Literal, Optional
 import logging
 import os
 
@@ -49,7 +50,7 @@ class AOFDiscordClient(discord.Client):
         async with message.channel.typing():
             # On demande au LLM de produire une réponse
             try:
-                thread = Thread.from_discord_message(message)
+                thread = await self.make_thread(message)
                 response = await self.aof_gpt.reply(thread)
             except:
                 logging.exception("Erreur en générant la réponse")
@@ -64,6 +65,27 @@ class AOFDiscordClient(discord.Client):
             except:
                 logging.exception("Erreur en postant la réponse")
 
+    async def make_thread(self, message) -> Thread:
+        messages = []
+        while message:
+            messages.insert(
+                0,
+                Message(
+                    role="assistant" if message.author.id == self.user.id else "user",
+                    content=message.clean_content,
+                ),
+            )
+            if reference := message.reference:
+                if reference.cached_message:
+                    message = reference.cached_message
+                elif reference.resolved:
+                    message = reference.resolved
+                else:
+                    message = await message.channel.fetch_message(reference.message_id)
+            else:
+                message = None
+        return Thread(messages=messages)
+
 
 def chunked(text: str, max_size: int) -> list[str]:
     """
@@ -73,21 +95,15 @@ def chunked(text: str, max_size: int) -> list[str]:
     return splitter.chunks(text, max_size)
 
 
+@dataclass
+class Message:
+    role: Literal["system", "user", "assistant"]
+    content: str
+
+
+@dataclass
 class Thread:
-    def __init__(self, content: str) -> None:
-        self.content = content
-
-    @classmethod
-    def from_discord_message(cls, message) -> Thread:
-        return cls(content=message.clean_content)
-
-    def to_openai_messages(self) -> list[dict[str, str]]:
-        return [
-            {
-                "role": "user",
-                "content": self.content,
-            }
-        ]
+    messages: list[Message]
 
 
 class AOFGPT:
@@ -104,13 +120,10 @@ class AOFGPT:
 
     async def reply(self, thread: Thread) -> Optional[str]:
         messages = [
-            {
-                "role": "system",
-                "content": self.system_prompt,
-            }
-        ] + thread.to_openai_messages()
+            Message(role="system", content=self.system_prompt)
+        ] + thread.messages
         completion = await self.openai_client.chat.completions.create(
-            messages=messages,
+            messages=[asdict(message) for message in messages],
             model=self.model_name,
             max_tokens=1024,
         )

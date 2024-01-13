@@ -2,7 +2,9 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from string import Template
 from typing import Literal, Optional
+import json
 import logging
 import os
 
@@ -112,11 +114,24 @@ class AOFGPT:
     """
 
     def __init__(
-        self, api_key: str, system_prompt: str, model_name="gpt-4-1106-preview"
+        self,
+        api_key: str,
+        instructions: str,
+        default_style: str,
+        model_name="gpt-4-1106-preview",
     ) -> None:
         self.openai_client = AsyncOpenAI(api_key=api_key)
-        self.system_prompt = system_prompt
+        self.instructions = Template(instructions)
         self.model_name = model_name
+        self.current_style = self.default_style = default_style
+        self.style_path = Path("style.txt")
+        if self.style_path.exists():
+            self.current_style = self.style_path.read_text() or self.default_style
+        logging.info("Style : %s", self.current_style)
+
+    @property
+    def system_prompt(self) -> str:
+        return self.instructions.safe_substitute(style=self.current_style)
 
     async def reply(self, thread: Thread) -> Optional[str]:
         messages = [
@@ -126,10 +141,44 @@ class AOFGPT:
             messages=[asdict(message) for message in messages],
             model=self.model_name,
             max_tokens=1024,
+            tools=[
+                {
+                    "type": "function",
+                    "function": {
+                        "name": "changer_le_style",
+                        "description": "Permet de changer le style, la manière de parler de IAOF.",
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "style": {
+                                    "type": "string",
+                                    "description": "Une description du style souhaité (p. ex. « concis, poli, inclusif, avec un léger grain de poésie »)",
+                                },
+                            },
+                            "required": ["style"],
+                        },
+                    },
+                },
+            ],
         )
         if completion is None:
             return None
-        return completion.choices[0].message.content
+
+        message = completion.choices[0].message
+        if message.content is not None:
+            return message.content
+
+        if message.tool_calls:
+            for tool_call in message.tool_calls:
+                if tool_call.type == "function":
+                    if tool_call.function.name == "changer_le_style":
+                        args = json.loads(tool_call.function.arguments)
+                        return self.changer_le_style(args["style"])
+
+    def changer_le_style(self, style: str) -> str:
+        self.current_style = style
+        self.style_path.write_text(style)
+        return f"Ok, mon style est maintenant « {style} »."
 
 
 def main() -> None:
@@ -137,7 +186,8 @@ def main() -> None:
 
     aof_gpt = AOFGPT(
         api_key=os.environ["OPENAI_API_KEY"],
-        system_prompt=(HERE / "instructions.md").read_text(),
+        instructions=(HERE / "instructions.md").read_text(),
+        default_style="concis, poli, inclusif (un léger grain de poésie est autorisé)",
     )
 
     discord_token = os.environ["DISCORD_TOKEN"]

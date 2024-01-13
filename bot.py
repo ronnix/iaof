@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Optional
+import logging
 import os
 
 import discord
@@ -31,7 +32,7 @@ class AOFDiscordClient(discord.Client):
         return intents
 
     async def on_ready(self) -> None:
-        print(f"{self.user} s’est connecté à Discord")
+        logging.info(f"{self.user} s’est connecté à Discord")
 
     async def on_message(self, message: discord.Message) -> None:
         # On ne se répond pas à soi-même
@@ -45,13 +46,20 @@ class AOFDiscordClient(discord.Client):
         # On signale qu’on va répondre
         async with message.channel.typing():
             # On demande au LLM de produire une réponse
-            response = await self.aof_gpt.reply(message.clean_content)
+            try:
+                response = await self.aof_gpt.reply(message.clean_content)
+            except:
+                logging.exception("Erreur en générant la réponse")
+                response = None
             if response is None:
                 response = "Oups, une erreur a eu lieu…"
 
             # On poste la réponse, en la découpant si elle est trop longue pour un seul message
-            for chunk in chunked(response, MAX_MESSAGE_SIZE):
-                await message.reply(chunk)
+            try:
+                for chunk in chunked(response, MAX_MESSAGE_SIZE):
+                    await message.reply(chunk)
+            except:
+                logging.exception("Erreur en postant la réponse")
 
 
 def chunked(text: str, max_size: int) -> list[str]:
@@ -108,4 +116,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     main()

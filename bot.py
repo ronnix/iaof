@@ -4,12 +4,14 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from string import Template
 from typing import Literal, Optional
+import codecs
 import json
 import logging
 import os
 
 import discord
 from dotenv import load_dotenv
+from ftfy import fix_text
 from openai import AsyncOpenAI
 from semantic_text_splitter import CharacterTextSplitter
 
@@ -173,12 +175,22 @@ class AOFGPT:
                 if tool_call.type == "function":
                     if tool_call.function.name == "changer_le_style":
                         args = json.loads(tool_call.function.arguments)
-                        return self.changer_le_style(args["style"].strip())
+                        return self.changer_le_style(style=clean_text(args["style"]))
 
     def changer_le_style(self, style: str) -> str:
         self.current_style = style
         self.style_path.write_text(style)
         return f"Ok, mon style est maintenant « {style} »."
+
+
+def clean_text(s: str) -> str:
+    """
+    L’API OpenAI a tendance à mal encoder les caractères accentués dans les appels d’outils
+    """
+    if r"\u" in s:
+        s = codecs.decode(s, "unicode_escape")
+    s = fix_text(s)
+    return s.strip()
 
 
 def main() -> None:

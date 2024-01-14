@@ -70,6 +70,12 @@ class AOFDiscordClient(discord.Client):
                 logging.exception("Erreur en postant la réponse")
 
     async def make_thread(self, message) -> Thread:
+        if message.channel.type == discord.ChannelType.private:
+            context = f"user-{message.author.id}"
+        else:
+            assert message.guild is not None
+            context = f"server-{message.guild.id}"
+
         messages = []
         while message:
             messages.insert(
@@ -88,7 +94,7 @@ class AOFDiscordClient(discord.Client):
                     message = await message.channel.fetch_message(reference.message_id)
             else:
                 message = None
-        return Thread(messages=messages)
+        return Thread(context=context, messages=messages)
 
 
 def chunked(text: str, max_size: int) -> list[str]:
@@ -105,8 +111,12 @@ class Message:
     content: str
 
 
+Context = str
+
+
 @dataclass
 class Thread:
+    context: Context
     messages: list[Message]
 
 
@@ -125,19 +135,21 @@ class AOFGPT:
         self.openai_client = AsyncOpenAI(api_key=api_key)
         self.instructions = Template(instructions)
         self.model_name = model_name
-        self.current_style = self.default_style = default_style
-        self.style_path = Path("style.txt")
-        if self.style_path.exists():
-            self.current_style = self.style_path.read_text() or self.default_style
-        logging.info("Style : %s", self.current_style)
+        self.default_style = default_style
+        self.styles: dict[Context, str] = {}
+        self.styles_path = Path("styles.json")
+        if self.styles_path.exists():
+            self.styles = json.load(self.styles_path.open())
+        logging.info("Styles : %s", self.styles)
 
-    @property
-    def system_prompt(self) -> str:
-        return self.instructions.safe_substitute(style=self.current_style)
+    def system_prompt(self, context: Context) -> str:
+        return self.instructions.safe_substitute(
+            style=self.styles.get(context, self.default_style)
+        )
 
     async def reply(self, thread: Thread) -> Optional[str]:
         messages = [
-            Message(role="system", content=self.system_prompt)
+            Message(role="system", content=self.system_prompt(thread.context))
         ] + thread.messages
         completion = await self.openai_client.chat.completions.create(
             messages=[asdict(message) for message in messages],
@@ -175,11 +187,14 @@ class AOFGPT:
                 if tool_call.type == "function":
                     if tool_call.function.name == "changer_le_style":
                         args = json.loads(tool_call.function.arguments)
-                        return self.changer_le_style(style=clean_text(args["style"]))
+                        return self.changer_le_style(
+                            style=clean_text(args["style"]),
+                            context=thread.context,
+                        )
 
-    def changer_le_style(self, style: str) -> str:
-        self.current_style = style
-        self.style_path.write_text(style)
+    def changer_le_style(self, style: str, context: Context) -> str:
+        self.styles[context] = style
+        json.dump(self.styles, self.styles_path.open("w"))
         return f"Ok, mon style est maintenant « {style} »."
 
 

@@ -166,7 +166,7 @@ class AOFGPT:
                             "properties": {
                                 "style": {
                                     "type": "string",
-                                    "description": "Une description du style souhaité (p. ex. « concis, poli, inclusif, avec un léger grain de poésie »)",
+                                    "description": "Une description du style souhaité (p. ex. « \u00e0 la mani\u00e8re de Pierre Desproges »)",
                                 },
                             },
                             "required": ["style"],

@@ -8,6 +8,7 @@ import codecs
 import json
 import logging
 import os
+import re
 
 import discord
 from dotenv import load_dotenv
@@ -205,7 +206,7 @@ def clean_text(s: str) -> str:
     if r"\u" in s:
         s = codecs.decode(s, "unicode_escape")
     s = fix_text(s)
-    return s.strip()
+    return re.sub(r"\s+", " ", s).strip()
 
 
 def main() -> None:

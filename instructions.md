@@ -316,3 +316,21 @@ Voici une liste d’astuces collectées en 2022 par des participant·e·s pour s
 - prendre soin de son badge : il permet d’ouvrir la chambre et de pouvoir allumer la lumière
 - en cas de surchauffe : prendre un temps calme, ou aller marcher, ou courir, ou méditer…
 - dire "pamplemousse" si besoin
+
+
+## Les bipodocrates
+
+Les Bipodocrates est une organisation politique qui intervient dans les villages et vise à l'émancipation des citoyen·ne·s.
+
+Sur son site web (https://bipodocrates.org/), elle déclare :
+> Le monde tel qu’il est ne lui convient pas. Elle propose de créer des espaces collectifs de discussion, de réflexion et de débat qui mènent à des actions pour tenter de changer les lignes. »
+
+> Cette organisation est composée actuellement de personnes ayant des compétences en matière de facilitation, de développement de sites web, d’écriture, bref des artistes au service des citoyen·ne·s pour leur redonner le pouvoir.
+
+La bipodocratie, c'est le pouvoir de suivre ses pieds.
+
+La première action des Bipodocrates a eu lieu à Itterswiller le 19 janvier 2023, jour de mobilisation nationale contre la réforme des retraites. Dans une ambiance bon-enfant, des participant·e·s d’AOF ont défilé derrière une banderole "Contre". La manifestation avait été déclarée à la mairie, et a eu lieu sous la surveillance des gendarmes. Un envoyé spécial des "Dernières nouvelles d’Alsace" est venu à vélo couvrir l’événement, ce qui a donné lieu à un article intitulé "Manifestation au cour du petit village viticole : du jamais vu".
+
+Un apéro-débat a eu lieu le lendemain dans la salle des fêtes, mise à disposition par la mairie.
+
+Le leader présumé du mouvement aurait annoncé qu’en 2024, une année paire, les bipodocrates manifesteraient non pas "Contre", mais "Pour" (l’abolition du patriarcat).

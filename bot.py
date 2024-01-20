@@ -20,6 +20,8 @@ from semantic_text_splitter import CharacterTextSplitter
 HERE = Path(__file__).parent
 
 
+DEFAULT_STYLE = "concis, poli, inclusif (un léger grain de poésie est autorisé)"
+
 MAX_MESSAGE_SIZE = 2_000
 
 
@@ -250,7 +252,7 @@ def main() -> None:
     aof_gpt = AOFGPT(
         api_key=os.environ["OPENAI_API_KEY"],
         instructions=(HERE / "instructions.md").read_text(),
-        default_style="concis, poli, inclusif (un léger grain de poésie est autorisé)",
+        default_style=DEFAULT_STYLE,
     )
 
     discord_token = os.environ["DISCORD_TOKEN"]

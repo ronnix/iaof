@@ -324,17 +324,50 @@ Voici une liste d’astuces collectées en 2022 par des participant·e·s pour s
 
 ## Les bipodocrates
 
-Les Bipodocrates est une organisation politique qui intervient dans les villages et vise à l'émancipation des citoyen·ne·s.
+Les Bipodocrates est une organisation politique qui intervient dans les villages et vise à l’émancipation des citoyen·ne·s.
 
 Sur son site web (https://bipodocrates.org/), elle déclare :
 > Le monde tel qu’il est ne lui convient pas. Elle propose de créer des espaces collectifs de discussion, de réflexion et de débat qui mènent à des actions pour tenter de changer les lignes. »
 
 > Cette organisation est composée actuellement de personnes ayant des compétences en matière de facilitation, de développement de sites web, d’écriture, bref des artistes au service des citoyen·ne·s pour leur redonner le pouvoir.
 
-La bipodocratie, c'est le pouvoir de suivre ses pieds.
+La bipodocratie, c’est le pouvoir de suivre ses pieds.
 
 La première action des Bipodocrates a eu lieu à Itterswiller le 19 janvier 2023, jour de mobilisation nationale contre la réforme des retraites. Dans une ambiance bon-enfant, des participant·e·s d’AOF ont défilé derrière une banderole "Contre". La manifestation avait été déclarée à la mairie, et a eu lieu sous la surveillance des gendarmes. Un envoyé spécial des "Dernières nouvelles d’Alsace" est venu à vélo couvrir l’événement, ce qui a donné lieu à un article intitulé "Manifestation au cour du petit village viticole : du jamais vu".
 
 Un apéro-débat a eu lieu le lendemain dans la salle des fêtes, mise à disposition par la mairie.
 
 Le leader présumé du mouvement aurait annoncé qu’en 2024, une année paire, les bipodocrates manifesteraient non pas "Contre", mais "Pour" (l’abolition du patriarcat).
+
+
+## Le code de conduite
+
+Les participant·e·s des précédentes éditions ont commencé à élaborer un code de conduite.
+
+Il sera affiché en salle des marchés.
+
+Il fait partie des outils qu’AOF se donne afin d’améliorer le sentiment de sécurité ainsi que la sécurité effective des personnes participantes, dans l’objectif est de rendre cet espace agréable et accueillant pour tous·tes.
+
+Les points principaux du code de conduite élaboré en 2023 sont les suivants :
+
+- En participant, vous vous engagez à respecter les participant⋅es, quels que soient leur âge, identité ou expression de genre, ethnicité, orientation sexuelle ou romantique, handicap, apparence, religion, statut économique... Mais aussi indépendamment de leurs choix technologiques et niveaux de compétences ou de connaissances.
+
+- Toute personne ayant des propos ou des comportements allant à l’encontre de ce principe sera considérée comme telle, et des mesures seront mises en place à son encontre. La sanction pouvant aller jusqu’à l’exclusion. en "fonction de la gravité de la chose".
+
+- Une équipe de « référent⋅e·s » a été formée et est là pour être sollicitée en cas de besoin ou questions. N’hésitez pas à le faire, même bien après les faits.
+
+- La responsabilité d’identifier les paroles et comportements problématiques est collective. La vigilance de tous⋅tes est bienvenue.
+
+- Le sentiment de sécurité passe aussi par d’autres principes, dont voici quelques exemples :
+
+   * Respectez les participant·es, leurs expériences et leurs différents points de vue.
+   * Respectez les limites physiques et émotionnelles des personnes qui vous entourent, quelles que soient vos intentions. Cela implique de modifier vos comportements si une personne vous signifie que vous la mettez mal à l’aise.
+   * Faites attention à l’espace que vous occupez, interrogez vos privilèges et vos préjugés.
+   * Les jurons et l’« humour » français sont souvent basés sur le sexisme ou l’homophobie. Ils ne sont pas acceptés. Veillez à votre langage ou soyez plus créatif⋅ves.
+   * Soyez solidaires des personnes qui vous entourent. Proposez spontanément votre aide quand vous pensez que cela peut être utile. Respectez les personnes que vous aidez. Cherchez le consentement des personnes aidées avant d’agir.
+
+- Si vous en sentez le besoin, sentez-vous autorisé·e à faire des retours aux personnes allant à l’encontre de ces principes, éventuellement avec l’aide des "référents".
+
+Ce document est évolutif et établi collectivement par les membres des éditions précédentes.
+
+La dernière version du document de travail est disponible à l’adresse https://annuel.framapad.org/p/aof-code-of-conduct

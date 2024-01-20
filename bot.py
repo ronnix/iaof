@@ -34,7 +34,7 @@ class AOFDiscordClient(discord.Client):
 
     def _intents(self) -> discord.Intents:
         intents = discord.Intents.default()
-        intents.message_content = True
+        intents.message_content = True  # il faut pouvoir lire les messages pour y répondre
         return intents
 
     async def on_ready(self) -> None:
@@ -71,6 +71,10 @@ class AOFDiscordClient(discord.Client):
                 logging.exception("Erreur en postant la réponse")
 
     async def make_thread(self, message) -> Thread:
+        """
+        Récupère les messages précédents de la conversation, pour avoir le contexte
+        lorsque lorsque la personne répond au bot.
+        """
         if message.channel.type == discord.ChannelType.private:
             context = f"user-{message.author.id}"
         else:
@@ -123,7 +127,14 @@ class Thread:
 
 class AOFGPT:
     """
-    L’assistant, basé sur ChatGPT.
+    L’assistant, basé sur l’API Chat d’OpenAI.
+
+    On utilise le modèle GPT 4 Turbo (gpt-4-1106-preview) qui est
+    actuellement le plus performant, malgré des problèmes connus sur
+    l’encodage des caractères accentués dans les "function calls".
+
+    Une version expérimentale basée sur l’API Assistant (beta) existe
+    sur une autre branche.
     """
 
     def __init__(
@@ -144,15 +155,19 @@ class AOFGPT:
         logging.info("Styles : %s", self.styles)
 
     def system_prompt(self, context: Context) -> str:
+        # Le "system prompt" incorpore quelques éléments dynamiques
         return self.instructions.safe_substitute(
             model_name=self.model_name,
             style=self.styles.get(context, self.default_style),
         )
 
     async def reply(self, thread: Thread) -> Optional[str]:
+        # On va passer le prompt système + le thread de messages entre l’utilisateur et le bot
         messages = [
             Message(role="system", content=self.system_prompt(thread.context))
         ] + thread.messages
+
+        # On appelle l’API
         completion = await self.openai_client.chat.completions.create(
             messages=[asdict(message) for message in messages],
             model=self.model_name,
@@ -177,13 +192,17 @@ class AOFGPT:
                 },
             ],
         )
+
+        # Quelque chose n’a pas fonctionné
         if completion is None:
             return None
 
+        # Cas d’une réponse textuelle normale
         message = completion.choices[0].message
         if message.content is not None:
             return message.content
 
+        # Cas où le modèle choisit d’utiliser un des outils mis à sa disposition
         if message.tool_calls:
             for tool_call in message.tool_calls:
                 if tool_call.type == "function":
@@ -195,6 +214,12 @@ class AOFGPT:
                         )
 
     def changer_le_style(self, style: str, context: Context) -> str:
+        """
+        Mettre à jour le style souhaité pour le contexte actuel.
+
+        Les consignes de style sont stockées dans un fichier JSON
+        de manière à persister en cas de redémarrage du bot.
+        """
         self.styles[context] = style
         json.dump(self.styles, self.styles_path.open("w"))
         return f"Ok, mon style est maintenant « {style} »."
@@ -202,7 +227,16 @@ class AOFGPT:
 
 def clean_text(s: str) -> str:
     """
-    L’API OpenAI a tendance à mal encoder les caractères accentués dans les appels d’outils
+    L’API OpenAI a tendance à mal encoder les caractères accentués
+    dans les appels d’outils.
+
+    C’est un problème connu, qui semble lié à l’entraînement du modèle 1106,
+    et dont la résolution a été promise pour janvier 2024 (nouvelle version
+    du modèle ?).
+
+    Parfois on peut corriger le problème, donc on fait ici notre possible,
+    mais d’autres fois les caractères accentués sont manquants ou remplacés
+    par un placeholder.
     """
     if r"\u" in s:
         s = codecs.decode(s, "unicode_escape")
@@ -211,7 +245,7 @@ def clean_text(s: str) -> str:
 
 
 def main() -> None:
-    load_dotenv()
+    load_dotenv()  # charge les variables d’environnement depuis un fichier .env
 
     aof_gpt = AOFGPT(
         api_key=os.environ["OPENAI_API_KEY"],

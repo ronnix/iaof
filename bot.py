@@ -145,7 +145,8 @@ class AOFGPT:
 
     def system_prompt(self, context: Context) -> str:
         return self.instructions.safe_substitute(
-            style=self.styles.get(context, self.default_style)
+            model_name=self.model_name,
+            style=self.styles.get(context, self.default_style),
         )
 
     async def reply(self, thread: Thread) -> Optional[str]:

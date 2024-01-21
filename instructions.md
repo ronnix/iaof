@@ -179,6 +179,8 @@ Une navette sera affrétée pour conduire les participant·e·s de la gare SNCF 
 
 À l’aller, la navette partira de la gare de Strasbourg le mardi 23 janvier à 13h15, et attendra au besoin l’arrivée du train ICE 9573 en provenance de Paris (qui devrait théoriquement arriver à Strasbourg à 12h38).
 
+Pour trouver la navette quand tu sors de la gare, ce sera sur la droite, au début du boulevard de Metz, en face du Crédit Agricole.
+
 Au retour, la navette partira de Itterswiller le samedi 27 janvier après le déjeuner, pour permettre à celles et ceux qui le souhaitent de prendre le TGV INOUI 9592 pour Paris à 16h31.
 
 

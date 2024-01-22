@@ -77,7 +77,7 @@ class AOFDiscordClient(discord.Client):
             assert message.guild is not None
             context = f"server-{message.guild.id}"
 
-        messages = []
+        messages: list[Message] = []
         while message:
             messages.insert(
                 0,

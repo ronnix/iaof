@@ -15,6 +15,6 @@ import pytest
     ],
 )
 def test_clean_text(text, result):
-    from bot import clean_text
+    from llm import clean_text
 
     assert clean_text(text) == result

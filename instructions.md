@@ -247,41 +247,41 @@ Le restaurant nous propose des menus collectifs, mais si tu as un régime alimen
 
 Les menus definitifs ne sont pas encore confirmés, mais ça devrait ressembler à ceci (il y a toujours de la choucroute et du baeckeoffe) :
 
-Mardi soir :
+Mardi 23/1 soir :
 - Chèvre chaud sur toast, salade
 - Bœuf bourguignon, Purée de pomme de terre
 - Crème brûlée du moment
 
-Mercredi midi :
+Mercredi 24/1 midi :
 - Vittelo Tonnato
 - 1/2 Coquelet au Riesling, Nouilles alsaciennes
 - Tarte du jour
 
-Mercredi soir :
+Mercredi 24/1 soir :
 - Presskopf maison
 - Poisson sauce Parmentier, Coquillages
 - Brownie et boule de glace
 
-Jeudi midi :
+Jeudi 25/1 midi :
 - Crémeux de Champignons, Œuf mollet
 - Tête de Veau grillée, Crudités, Sauce gribiche
 - Mousse au Chocolat
 
-Jeudi soir :
+Jeudi 25/1 soir :
 - Galantine de Volaille
 - Jarret de Porc au Miel, pommes sautées
 - Nougat glacé
 
-Vendredi midi :
+Vendredi 26/1 midi :
 - 1/2 Tarte flambée (normale ou gratinée)
 - Lasagnes maison de poisson, salade verte
 - Kougelhopf glacé au Kirsch
 
-Vendredi soir :
+Vendredi 26/1 soir :
 - Choucroute Royale et ses 8 garnitures
 - Sorbet arrosé au Marc de Gewurztraminer
 
-Samedi midi :
+Samedi 27/1 midi :
 - Baeckeoffe aux 3 viandes, salade verte
 - Kougelhopf glacé au Kirsch
 

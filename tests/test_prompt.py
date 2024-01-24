@@ -14,6 +14,6 @@ def gpt():
 
 
 def test_la_date_est_dans_le_prompt(gpt):
-    with freeze_time("2024-01-24 23:15:00"):
+    with freeze_time("2024-01-24 22:15:00"):  # UTC
         prompt = gpt.system_prompt(context="xxx")
     assert "Nous sommes le 24 janvier 2024 et il est 23:15." in prompt

@@ -13,6 +13,10 @@ import re
 from babel.dates import format_date, format_time
 from ftfy import fix_text
 from openai import AsyncOpenAI
+from pytz import timezone
+
+
+TZ = timezone("Europe/Paris")
 
 
 @dataclass
@@ -61,7 +65,7 @@ class AOFGPT:
 
     def system_prompt(self, context: Context) -> str:
         # Le "system prompt" incorpore quelques éléments dynamiques
-        now = datetime.now()
+        now = datetime.now(tz=TZ)
         return self.instructions.safe_substitute(
             model_name=self.model_name,
             date=format_date(now, format="long", locale="fr"),

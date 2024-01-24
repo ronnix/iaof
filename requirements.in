@@ -3,4 +3,5 @@ discord.py
 ftfy
 openai
 python-dotenv
+pytz
 semantic-text-splitter

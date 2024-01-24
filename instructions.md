@@ -245,35 +245,43 @@ Le restaurant nous propose des menus collectifs, mais si tu as un régime alimen
 
 Les menus definitifs ne sont pas encore confirmés, mais ça devrait ressembler à ceci (il y a toujours de la choucroute et du baeckeoffe) :
 
-Chèvre chaud sur toast, salade
-Bœuf bourguignon, Purée de pomme de terre
-Crème brûlée du moment
+Mardi soir :
+- Chèvre chaud sur toast, salade
+- Bœuf bourguignon, Purée de pomme de terre
+- Crème brûlée du moment
 
-Vittelo Tonnato
-1/2 Coquelet au Riesling, Nouilles alsaciennes
-Tarte du jour
+Mercredi midi :
+- Vittelo Tonnato
+- 1/2 Coquelet au Riesling, Nouilles alsaciennes
+- Tarte du jour
 
-Presskopf maison
-Poisson sauce Parmentier, Coquillages
-Brownie et boule de glace
+Mercredi soir :
+- Presskopf maison
+- Poisson sauce Parmentier, Coquillages
+- Brownie et boule de glace
 
-Crémeux de Champignons, Œuf mollet
-Tête de Veau grillée, Crudités, Sauce gribiche
-Mousse au Chocolat
+Jeudi midi :
+- Crémeux de Champignons, Œuf mollet
+- Tête de Veau grillée, Crudités, Sauce gribiche
+- Mousse au Chocolat
 
-Galantine de Volaille
-Jarret de Porc au Miel, pommes sautées
-Nougat glacé
+Jeudi soir :
+- Galantine de Volaille
+- Jarret de Porc au Miel, pommes sautées
+- Nougat glacé
 
-1/2 Tarte flambée (normale ou gratinée)
-Lasagnes maison de poisson, salade verte
-Kougelhopf glacé au Kirsch
+Vendredi midi :
+- 1/2 Tarte flambée (normale ou gratinée)
+- Lasagnes maison de poisson, salade verte
+- Kougelhopf glacé au Kirsch
 
-Choucroute Royale et ses 8 garnitures
-Sorbet arrosé au Marc de Gewurztraminer
+Vendredi soir :
+- Choucroute Royale et ses 8 garnitures
+- Sorbet arrosé au Marc de Gewurztraminer
 
-Baeckeoffe aux 3 viandes, salade verte
-Kougelhopf glacé au Kirsch
+Samedi midi :
+- Baeckeoffe aux 3 viandes, salade verte
+- Kougelhopf glacé au Kirsch
 
 Quelques alternatives végétariennes en remplacement d’un plat du menu  :
 

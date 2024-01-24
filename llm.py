@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from datetime import datetime
 from pathlib import Path
 from string import Template
 from typing import Literal, Optional
@@ -9,8 +10,10 @@ import json
 import logging
 import re
 
+from babel.dates import format_date, format_time
 from ftfy import fix_text
 from openai import AsyncOpenAI
+
 
 @dataclass
 class Message:
@@ -58,8 +61,11 @@ class AOFGPT:
 
     def system_prompt(self, context: Context) -> str:
         # Le "system prompt" incorpore quelques éléments dynamiques
+        now = datetime.now()
         return self.instructions.safe_substitute(
             model_name=self.model_name,
+            date=format_date(now, format="long", locale="fr"),
+            time=format_time(now, format="short", locale="fr"),
             style=self.styles.get(context, self.default_style),
         )
 

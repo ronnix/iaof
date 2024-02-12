@@ -34,7 +34,7 @@ class Thread:
     messages: list[Message]
 
 
-class AOFGPT:
+class Radoteur:
     """
     L’assistant, basé sur l’API Chat d’OpenAI.
 

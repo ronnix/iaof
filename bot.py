@@ -8,7 +8,7 @@ import discord
 from dotenv import load_dotenv
 from semantic_text_splitter import CharacterTextSplitter
 
-from llm import AOFGPT, Message, Thread
+from radoteur import Radoteur, Message, Thread
 
 
 HERE = Path(__file__).parent
@@ -24,9 +24,9 @@ class AOFDiscordClient(discord.Client):
     Le bot Discord.
     """
 
-    def __init__(self, aof_gpt: AOFGPT) -> None:
+    def __init__(self, radoteur: Radoteur) -> None:
         super().__init__(intents=self._intents())
-        self.aof_gpt = aof_gpt
+        self.radoteur = radoteur
 
     def _intents(self) -> discord.Intents:
         intents = discord.Intents.default()
@@ -52,7 +52,7 @@ class AOFDiscordClient(discord.Client):
             # On demande au LLM de produire une réponse
             try:
                 thread = await self.make_thread(message)
-                response = await self.aof_gpt.reply(thread)
+                response = await self.radoteur.reply(thread)
             except:
                 logging.exception("Erreur en générant la réponse")
                 response = None
@@ -109,14 +109,14 @@ def chunked(text: str, max_size: int) -> list[str]:
 def main() -> None:
     load_dotenv()  # charge les variables d’environnement depuis un fichier .env
 
-    aof_gpt = AOFGPT(
+    radoteur = Radoteur(
         api_key=os.environ["OPENAI_API_KEY"],
         instructions=(HERE / "instructions.md").read_text(),
         default_style=DEFAULT_STYLE,
     )
 
     discord_token = os.environ["DISCORD_TOKEN"]
-    client = AOFDiscordClient(aof_gpt)
+    client = AOFDiscordClient(radoteur)
     client.run(discord_token)
 
 

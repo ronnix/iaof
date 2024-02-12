@@ -15,6 +15,6 @@ import pytest
     ],
 )
 def test_clean_text(text, result):
-    from llm import clean_text
+    from radoteur import clean_text
 
     assert clean_text(text) == result

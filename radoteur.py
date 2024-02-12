@@ -5,15 +5,16 @@ from datetime import datetime
 from pathlib import Path
 from string import Template
 from typing import Literal, Optional
-import codecs
 import json
 import logging
-import re
 
 from babel.dates import format_date, format_time
-from ftfy import fix_text
 from openai import AsyncOpenAI
 from pytz import timezone
+
+
+# On utilise le modèle GPT 4 Turbo, qui est actuellement le plus performant.
+DEFAULT_MODEL = "gpt-4-0125-preview"
 
 
 TZ = timezone("Europe/Paris")
@@ -38,10 +39,6 @@ class Radoteur:
     """
     L’assistant, basé sur l’API Chat d’OpenAI.
 
-    On utilise le modèle GPT 4 Turbo (gpt-4-1106-preview) qui est
-    actuellement le plus performant, malgré des problèmes connus sur
-    l’encodage des caractères accentués dans les "function calls".
-
     Une version expérimentale basée sur l’API Assistant (beta) existe
     sur une autre branche.
     """
@@ -51,7 +48,7 @@ class Radoteur:
         api_key: str,
         instructions: str,
         default_style: str,
-        model_name="gpt-4-1106-preview",
+        model_name=DEFAULT_MODEL,
     ) -> None:
         self.openai_client = AsyncOpenAI(api_key=api_key)
         self.instructions = Template(instructions)
@@ -121,7 +118,7 @@ class Radoteur:
                     if tool_call.function.name == "changer_le_style":
                         args = json.loads(tool_call.function.arguments)
                         return self.changer_le_style(
-                            style=clean_text(args["style"]),
+                            style=args["style"],
                             context=thread.context,
                         )
 
@@ -135,22 +132,3 @@ class Radoteur:
         self.styles[context] = style
         json.dump(self.styles, self.styles_path.open("w"))
         return f"Ok, mon style est maintenant « {style} »."
-
-
-def clean_text(s: str) -> str:
-    """
-    L’API OpenAI a tendance à mal encoder les caractères accentués
-    dans les appels d’outils.
-
-    C’est un problème connu, qui semble lié à l’entraînement du modèle 1106,
-    et dont la résolution a été promise pour janvier 2024 (nouvelle version
-    du modèle ?).
-
-    Parfois on peut corriger le problème, donc on fait ici notre possible,
-    mais d’autres fois les caractères accentués sont manquants ou remplacés
-    par un placeholder.
-    """
-    if r"\u" in s:
-        s = codecs.decode(s, "unicode_escape")
-    s = fix_text(s)
-    return re.sub(r"\s+", " ", s).strip()

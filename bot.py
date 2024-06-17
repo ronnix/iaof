@@ -4,11 +4,11 @@ from pathlib import Path
 import logging
 import os
 
-import discord
 from dotenv import load_dotenv
 from semantic_text_splitter import CharacterTextSplitter
+import discord
 
-from radoteur import Radoteur, Message, Thread
+from radoteur import Message, Radoteur, Thread
 
 
 HERE = Path(__file__).parent

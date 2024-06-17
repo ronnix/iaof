@@ -28,6 +28,8 @@ pytest==7.4.4
     # via -r dev-requirements.in
 python-dateutil==2.8.2
     # via freezegun
+ruff==0.4.9
+    # via -r dev-requirements.in
 six==1.16.0
     # via python-dateutil
 tomli==2.0.1

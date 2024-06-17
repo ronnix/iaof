@@ -10,3 +10,16 @@ dynamic = ["dependencies", "optional-dependencies"]
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.in"] }
 optional-dependencies.dev = { file = ["dev-requirements.txt"] }
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.lint]
+extend-select = ["I"]  # ajoute les règles de tri des imports (isort)
+ignore = ["E722"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+from-first = true
+lines-after-imports = 2
+required-imports = ["from __future__ import annotations"]

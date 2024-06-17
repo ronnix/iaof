@@ -109,15 +109,25 @@ def chunked(text: str, max_size: int) -> list[str]:
 def main() -> None:
     load_dotenv()  # charge les variables d’environnement depuis un fichier .env
 
-    radoteur = RadoteurOpenAI(
-        api_key=os.environ["OPENAI_API_KEY"],
-        instructions=(HERE / "instructions.md").read_text(),
-        default_style=DEFAULT_STYLE,
-    )
+    radoteur = instancie_radoteur()
 
     discord_token = os.environ["DISCORD_TOKEN"]
     client = AOFDiscordClient(radoteur)
     client.run(discord_token)
+
+
+def instancie_radoteur() -> Radoteur:
+    fournisseur = os.getenv("FOURNISSEUR", "openai")
+
+    match fournisseur:
+        case "openai":
+            return RadoteurOpenAI(
+                api_key=os.environ["OPENAI_API_KEY"],
+                instructions=(HERE / "instructions.md").read_text(),
+                default_style=DEFAULT_STYLE,
+            )
+        case _:
+            raise ValueError(f"Fournisseur {fournisseur} inconnu")
 
 
 if __name__ == "__main__":

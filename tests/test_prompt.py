@@ -6,9 +6,9 @@ import pytest
 
 @pytest.fixture
 def radoteur():
-    from radoteur import Radoteur
+    from radoteurs.openai import RadoteurOpenAI
 
-    return Radoteur(
+    return RadoteurOpenAI(
         api_key="fake_key",
         instructions="Nous sommes le $date et il est $time.",
         default_style="xxx",

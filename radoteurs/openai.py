@@ -1,16 +1,19 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 from string import Template
-from typing import Literal, Optional
+from typing import Optional
 import json
 import logging
 
 from babel.dates import format_date, format_time
 from openai import AsyncOpenAI
 from pytz import timezone
+
+from .base import Radoteur
+from .messages import Context, Message, Thread
 
 
 # On utilise le modèle GPT 4 Turbo, qui est actuellement le plus performant.
@@ -20,24 +23,9 @@ DEFAULT_MODEL = "gpt-4-0125-preview"
 TZ = timezone("Europe/Paris")
 
 
-@dataclass
-class Message:
-    role: Literal["system", "user", "assistant"]
-    content: str
-
-
-Context = str
-
-
-@dataclass
-class Thread:
-    context: Context
-    messages: list[Message]
-
-
-class Radoteur:
+class RadoteurOpenAI(Radoteur):
     """
-    L’assistant, basé sur l’API Chat d’OpenAI.
+    Un assistant basé sur l’API Chat d’OpenAI.
 
     Une version expérimentale basée sur l’API Assistant (beta) existe
     sur une autre branche.

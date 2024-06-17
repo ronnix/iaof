@@ -8,11 +8,11 @@ from dotenv import load_dotenv
 from semantic_text_splitter import CharacterTextSplitter
 import discord
 
-from radoteur import Message, Radoteur, Thread
+from radoteurs import Message, Radoteur, Thread
+from radoteurs.openai import RadoteurOpenAI
 
 
 HERE = Path(__file__).parent
-
 
 DEFAULT_STYLE = "concis, poli, inclusif (un léger grain de poésie est autorisé)"
 
@@ -109,7 +109,7 @@ def chunked(text: str, max_size: int) -> list[str]:
 def main() -> None:
     load_dotenv()  # charge les variables d’environnement depuis un fichier .env
 
-    radoteur = Radoteur(
+    radoteur = RadoteurOpenAI(
         api_key=os.environ["OPENAI_API_KEY"],
         instructions=(HERE / "instructions.md").read_text(),
         default_style=DEFAULT_STYLE,

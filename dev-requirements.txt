@@ -9,13 +9,16 @@ build==1.0.3
 click==8.1.7
     # via pip-tools
 exceptiongroup==1.2.0
-    # via pytest
+    # via
+    #   -c requirements.txt
+    #   pytest
 freezegun==1.4.0
     # via -r dev-requirements.in
 iniconfig==2.0.0
     # via pytest
-packaging==23.2
+packaging==24.1
     # via
+    #   -c requirements.txt
     #   build
     #   pytest
 pip-tools==7.3.0

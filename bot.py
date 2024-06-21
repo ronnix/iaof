@@ -9,6 +9,7 @@ from semantic_text_splitter import CharacterTextSplitter
 import discord
 
 from radoteurs import Message, Radoteur, Thread
+from radoteurs.anthropic import RadoteurAnthropic
 from radoteurs.openai import RadoteurOpenAI
 from radoteurs.ping import RadoteurPing
 
@@ -121,6 +122,12 @@ def instancie_radoteur() -> Radoteur:
     fournisseur = os.getenv("FOURNISSEUR", "openai")
 
     match fournisseur:
+        case "anthropic":
+            return RadoteurAnthropic(
+                api_key=os.environ["ANTHROPIC_API_KEY"],
+                instructions=(HERE / "instructions.md").read_text(),
+                default_style=DEFAULT_STYLE,
+            )
         case "openai":
             return RadoteurOpenAI(
                 api_key=os.environ["OPENAI_API_KEY"],

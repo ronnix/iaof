@@ -58,4 +58,4 @@ class Radoteur(ABC):
         """
         self.styles[context] = style
         json.dump(self.styles, self.styles_path.open("w"))
-        return f"Ok, mon style est maintenant « {style} »."
+        return f"*Mon style est maintenant « {style} ».*"

@@ -1,26 +1,17 @@
 from __future__ import annotations
 
 from dataclasses import asdict
-from datetime import datetime
-from pathlib import Path
-from string import Template
 from typing import Optional
 import json
-import logging
 
-from babel.dates import format_date, format_time
 from openai import AsyncOpenAI
-from pytz import timezone
 
 from .base import Radoteur
-from .messages import Context, Message, Thread
+from .messages import Message, Thread
 
 
 # On utilise le modèle GPT 4 Turbo, qui est actuellement le plus performant.
 DEFAULT_MODEL = "gpt-4-0125-preview"
-
-
-TZ = timezone("Europe/Paris")
 
 
 class RadoteurOpenAI(Radoteur):
@@ -31,6 +22,8 @@ class RadoteurOpenAI(Radoteur):
     sur une autre branche.
     """
 
+    provider = "OpenAI"
+
     def __init__(
         self,
         api_key: str,
@@ -38,25 +31,9 @@ class RadoteurOpenAI(Radoteur):
         default_style: str,
         model_name=DEFAULT_MODEL,
     ) -> None:
+        super().__init__(instructions, default_style)
         self.openai_client = AsyncOpenAI(api_key=api_key)
-        self.instructions = Template(instructions)
         self.model_name = model_name
-        self.default_style = default_style
-        self.styles: dict[Context, str] = {}
-        self.styles_path = Path("styles.json")
-        if self.styles_path.exists():
-            self.styles = json.load(self.styles_path.open())
-        logging.info("Styles : %s", self.styles)
-
-    def system_prompt(self, context: Context) -> str:
-        # Le "system prompt" incorpore quelques éléments dynamiques
-        now = datetime.now(tz=TZ)
-        return self.instructions.safe_substitute(
-            model_name=self.model_name,
-            date=format_date(now, format="long", locale="fr"),
-            time=format_time(now, format="short", locale="fr"),
-            style=self.styles.get(context, self.default_style),
-        )
 
     async def reply(self, thread: Thread) -> Optional[str]:
         # On va passer le prompt système + le thread de messages entre l’utilisateur et le bot
@@ -109,14 +86,3 @@ class RadoteurOpenAI(Radoteur):
                             style=args["style"],
                             context=thread.context,
                         )
-
-    def changer_le_style(self, style: str, context: Context) -> str:
-        """
-        Mettre à jour le style souhaité pour le contexte actuel.
-
-        Les consignes de style sont stockées dans un fichier JSON
-        de manière à persister en cas de redémarrage du bot.
-        """
-        self.styles[context] = style
-        json.dump(self.styles, self.styles_path.open("w"))
-        return f"Ok, mon style est maintenant « {style} »."

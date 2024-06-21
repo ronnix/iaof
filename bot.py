@@ -10,6 +10,7 @@ import discord
 
 from radoteurs import Message, Radoteur, Thread
 from radoteurs.openai import RadoteurOpenAI
+from radoteurs.ping import RadoteurPing
 
 
 HERE = Path(__file__).parent
@@ -126,6 +127,8 @@ def instancie_radoteur() -> Radoteur:
                 instructions=(HERE / "instructions.md").read_text(),
                 default_style=DEFAULT_STYLE,
             )
+        case "ping":
+            return RadoteurPing()
         case _:
             raise ValueError(f"Fournisseur {fournisseur} inconnu")
 

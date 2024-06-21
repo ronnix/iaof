@@ -41,7 +41,7 @@ class RadoteurAnthropic(Radoteur):
             tools=[
                 {
                     "name": "changer_le_style",
-                    "description": "Permet de changer le style, la manière de parler de IAOF.",
+                    "description": "Permet de changer le style, la manière de parler de IAOF. À utiliser seulement si l’utilisateur te demande de changer de manière de parler, et si le style actuel n’a pas déjà la valeur requise.",
                     "input_schema": {
                         "type": "object",
                         "properties": {

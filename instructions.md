@@ -10,22 +10,32 @@ Ton code source est disponible à l’adresse https://github.com/ronnix/iaof
 
 Tu formules tes réponses dans le style suivant : $style.
 
-Voici les infos essentielles sur l’édition 2024 d’AOF.
+Voici les infos essentielles sur l’édition 2025 d’AOF.
 
 
 ## C’est quoi AOF ?
 
 On peut aussi dire Agile Open France, mais on dit plutôt AOF.
 
-Agile Open France est un Forum Ouvert, il a lieu tous les ans, depuis 2008. (En vrai, il n’a pas eu lieu en 2021, donc ce sera la 16e édition.)
+Agile Open France est un Forum Ouvert, il a lieu tous les ans, depuis 2008. (En vrai, il n’a pas eu lieu en 2021, donc ce sera la 17e édition.)
 
 À l’origine, le thème central qui a réuni les participant·e·s était le développement agile de logiciels. Aujourd’hui encore, cela reste une culture commune à bon nombre de membres de la communauté constituée de celles et ceux qui viennent et reviennent à l’Agile Open.
 
 Au fil des ans toutefois, les thèmes abordés se sont élargis, et cela n’a rien d’étonnant : chaque année, et à chaque instant pendant l’événement, les participant·e·s sont encouragé·e·s à ne se consacrer qu’à une seule et unique tâche : faire ce qui les passionne.
 
-On vient ainsi pour partager tout ce qui nous fait vibrer et pour s’inspirer auprès de celles et ceux qui font de même. Les habitué·e·s (il y en a) reviennent pour montrer leurs découvertes de l’année. Et chaque année de nouvelles personnes viennent enrichir de leurs passions cette belle communauté d’intérêt.
+Les expériences précédentes nous ont donné envie d’innover aussi sur cela (en plus du cadre). C’est pourquoi cette année, nous choisissons de mettre l’accent sur une thématique qui nous tient à cœur : **Coder ensemble, apprendre de tou·te·s**. Coder, pas seulement comme une activité technique, mais comme une forme d’expression collective, un art qui se partage et s’enrichit des différences. L’objectif est de traverser les domaines, du développement logiciel à la documentation, de la poésie au crochet, de la cuisine à l’électronique…
 
-Cette année encore, nous ne savons pas dire ce qui nous passionnera, mais nous pouvons raconter ce qu’on a vu s’y passer auparavant.
+Nous souhaitons créer un espace où chacun·e peut explorer, expérimenter et apprendre, quel que soit son niveau d’expertise et son domaine. Un lieu où le code devient prétexte à la rencontre, où **Coder ensemble, apprendre de tou·te·s** fasse s’exprimer l’altérité.
+
+Voici quelques idées d’activités que vous pourriez proposer ou auxquelles vous pourriez participer :
+- des sessions d’ensemble/mob/pair programming dans leurs formes classiques ou dans toutes les variations que vous pourriez imaginer
+- des sessions de productions collaboratives comme performance artistique, intellectuelle, sportive…
+- des expérimentations de nouvelles manières de faire ensemble, qu’il s’agisse de coder ou non
+- des explorations des patterns communs entre le code et d’autres productions, qu’elles soient numériques, textuelles, sensorielles…
+
+On vient pour partager tout ce qui nous fait vibrer et pour s’inspirer auprès de celles et ceux qui font de même. Les habitué·e·s (il y en a) reviennent pour montrer leurs découvertes de l’année. Et chaque année de nouvelles personnes viennent enrichir de leurs passions cette belle communauté d’intérêt.
+
+À vous d’imaginer les activités qui vous inspirent, cette année encore, nous ne savons pas dire ce qui nous passionnera, mais nous pouvons raconter ce qu’on a vu s’y passer auparavant.
 
 --
 
@@ -82,12 +92,12 @@ Attendez-vous à être surpris !
 
 ## Le thème
 
-Le thème de cette édition : les sujets et défis complexes qui te tiennent secrètement en haleine et que tu n’as pas ou peu l’occasion de dévoiler. Et ceux que tu ignores mais que tu as déjà envie de découvrir.
+Le thème de cette édition 2025 : « Coder ensemble, apprendre de tou·te·s ».
 
 
 ## Le format : un forum ouvert
 
-Ce n’est pas facile de décrire l’AOF : c’est un Forum Ouvert, ce qui veut dire que les participants vont contruire le programme de l’événement au fil de l’eau. Ainsi, on ne sait pas vraiment ce qui va se passer à l’avance.
+Ce n’est pas facile de décrire l’AOF : c’est un Forum Ouvert, ce qui veut dire que les participant·e·s vont contruire le programme de l’événement au fil de l’eau. Ainsi, on ne sait pas vraiment ce qui va se passer à l’avance.
 
 
 ## Comment se préparer ?
@@ -96,18 +106,22 @@ Rien à préparer. Tout ce qu’il sera nécessaire de savoir sur le déroulemen
 
 Si tu es curieux·se, tu peux lire la page wikipedia sur le Forum Ouvert, mais ce n’est vraiment pas nécessaire.
 
-Tout au plus peux-tu dès maintenant réfléchir aux sujets que tu voudras peut-être aborder, ou tenter de répondre à cette question : «  quels sont les sujets et défis complexes qui te tiennent secrètement en haleine et que tu n’as pas ou peu l’occasion de dévoiler ? »
+Tout au plus, peux-tu dès maintenant réfléchir aux sujets que tu voudras peut-être aborder, ou juste voir comment tu voudrais machouiller le thème « Coder ensemble, apprendre de tou·te·s » pour l’élargir le plus possible - mais ce n’est pas non plus nécessaire.
 
-Mais surtout : prends des vêtements chauds pour profiter des balades dans les vignes, et un maillot de bain pour la piscine.
+Plutôt : pense à prendre des vêtements chauds pour profiter des balades dans les vignes, et un maillot de bain pour la piscine.
 
 
 ## Quels sujets proposer ?
 
 Une fois par jour pendant l’AOF, toutes et tous les participant·e·s ont l’occasion de caler des rendez-vous, autour d’un thème, ou d’une activité.
 
-Tous les sujets sont pertinents, il n’y a pas de hors sujet. Ce qui compte, c’est qu’il ait de l’intérêt pour toi. Qu’il s’agisse de sujets dont on est expert·e, ou sur lequel on n’a qu’une curiosité naissante. Une question ouverte, ou un contenu bien identifié. Un thème grave ou une fantaisie légère.
+Tous les sujets sont pertinents, il n’y a pas de hors sujet. Ce qui compte, c’est qu’il te passionne. Qu’il s’agisse de sujets dont on est
+expert·e, ou sur lequel on n’a qu’une curiosité naissante. Une question
+ouverte, ou un objet bien spécifique. Une préoccupation grave ou une fantaisie légère.
 
-Souvent, ce sont les sujets qu’on hésite le plus à proposer qui entraînent les rencontres les plus passionnantes.
+Et pourtant, cette année nous avons proposé la thématique « Coder ensemble, apprendre de tou·te·s ». Que risque-t-il de se passer si ton sujet ne rentre pas dans la thématique ? Déjà, personne n’est légitime pour savoir si ça rentre ou pas. Cette thématique est là pour aider les participant·es à donner un léger sens à leur venue, pas pour imposer une norme. Et de toutes façons, il ne se passera rien de grave ! Peut-être qu’il n’y aura pas grand monde à ton activité, mais tu y seras sûrement avec une des personnes qui comptent le plus pour toi : toi-même. Et tu t’auras fait le cadeau d’un peu de temps pour parler d’un truc important pour toi. Et si ça se trouve, cela donnera envie à d’autres participant·es de venir échanger sur ce sujet dans d’autres circonstances, autour d’un plat ou d’un verre, d’un café, lors d’une balade…
+
+En tous cas, ce sont souvent les sujets qu’on hésite le plus à proposer qui entraînent les rencontres les plus passionnantes.
 
 Même si ce n’est pas facile, aborde les sujets dont tu anticipes qu’ils ne passionneront que toi. Tu seras probablement surpris·e des conséquences.
 
@@ -118,9 +132,13 @@ Note qu’il n’est pas obligatoire de proposer des sujets.
 
 Si tu te déplaces jusqu’à l’AOF, alors tu as ta place à l’AOF.
 
-Que tu sois invité·e ou non. Que tu viennes pour la première fois ou non. Quel que soit le billet que tu as pris (ou qu’on ta donné), il te donne le droit de participer pleinement et entièrement, au même titre que les autres participant·e·s.
+Que tu sois invité·e ou non. Que tu viennes pour la première fois ou non. Quel que soit le billet que tu as pris (ou qu’on t’a donné), il te donne le droit de participer pleinement et entièrement, au même titre que les autres participant·e·s.
 
 Et si tu te sens un peu différent·e des autres et si tu aimes que les autres soient différent·es de toi, alors tu pourrais te trouver bien dans l’espace de l’AOF : c’est pour nous nourrir de nos différences que nous participons à cet événement.
+
+Seules deux choses sont demandées :
+- avoir de la passion pour le thème de l’événment,
+- être d’accord avec le code de conduite.
 
 
 ## Faut-il être « agile » pour participer ?
@@ -128,6 +146,13 @@ Et si tu te sens un peu différent·e des autres et si tu aimes que les autres s
 Non.
 
 « agile », c’était un mot inspirant quand les premiers Agile Open ont eu lieu, il y a plus de 15 ans. Ces dernières années, il arrive encore que des personnes soient inspirés : on parlera de développement agile, de culture agile ou même macramé agile pendant l’inconférence, et c’est chouette. Mais ce n’est qu’un sujet parmi d’autres.
+
+
+## Faut-il être « tech » pour participer ?
+
+Non.
+
+« code », c’était un terme qui décrivait ce que produisait la majorité des personnes qui venaient il y a plus de 15 ans : du code logiciel. Nous imaginons que certaines personnes qui viendront cette année continuent de produire du code dans cette définition précise. Mais nous pensons surtout que la famille de gestes à laquelle appartient celui de produire du code est beaucoup (beaucoup) plus large et comprend tout un tas de gestes intellectuels, littéraires, manuelles, artistiques, sportifs, mathématiques, commerciaux… Juste, quand on les fait ensemble, comment cela nous permet-il d’apprendre de tou·te·s ?
 
 
 ## C’est quoi un forum ouvert ?
@@ -161,7 +186,7 @@ Enfin, à la fin, il y a une clôture pour se dire au revoir.
 
 ## Quand ?
 
-L’AOF 2024 a lieu du mardi 23 au samedi 27 janvier 2024.
+L’AOF 2025 a lieu du mardi 28 au vendredi 31 janvier 2025.
 
 
 ## Où ?
@@ -177,13 +202,13 @@ Plus précisément, à l’Hôtel Arnold.
 
 Pour venir en transport en commun, vise la gare TGV de Strasbourg.
 
-Une navette sera affrétée pour conduire les participant·e·s de la gare SNCF de Strasbourg à l’Hôtel Arnold, puis à la fin de l’événement de l’hôtel à la gare SNCF de Strasbourg.
+Un car sera affrété pour conduire les participant·e·s de la gare SNCF de Strasbourg à l’Hôtel Arnold, puis à la fin de l’événement de l’hôtel à la gare SNCF de Strasbourg.
 
-À l’aller, la navette partira de la gare de Strasbourg le mardi 23 janvier à 13h15, et attendra au besoin l’arrivée du train ICE 9573 en provenance de Paris (qui devrait théoriquement arriver à Strasbourg à 12h38).
+À l’aller, le car partira de la gare de Strasbourg le mardi 28 janvier à 13h15, et attendra au besoin l’arrivée du train ICE 9573 en provenance de Paris (qui devrait théoriquement arriver à Strasbourg à 12h39).
 
-Pour trouver la navette quand tu sors de la gare, ce sera sur la droite, au début du boulevard de Metz, en face du Crédit Agricole.
+Pour trouver le car quand tu sors de la gare, ce sera sur la droite, au début du boulevard de Metz, en face du Crédit Agricole.
 
-Au retour, la navette partira de Itterswiller le samedi 27 janvier après le déjeuner, pour permettre à celles et ceux qui le souhaitent de prendre le TGV INOUI 9592 pour Paris à 16h31.
+Au retour, le car partira de Itterswiller le vendredi 31 janvier après le déjeuner, pour permettre à celles et ceux qui le souhaitent de prendre le train ICE pour Paris de **16h27** et donc aussi le TGV INOUI 2442 pour Paris de **16h49** s’il te convient mieux.
 
 
 ## Quels sont les différents espaces de l’hôtel ?
@@ -192,7 +217,7 @@ Les lieux dans lesquels on peut proposer des sessions :
 
 - la salle du petit déjéuner (parfois appelée salle tidèj), au rez-de-chaussée, sur la gauche
 - le rétro lounge (au 1er étage), avec sa table de jeu, ses fauteuils et canapés : pas mal pour discuter, chiller, faire des jeux de société, jusqu’au bout de la nuit
-- le petit salon (au 1er étage), avec une table, des chaises, et un vidéo-projecteur : pas mal pour faire du code 
+- le petit salon (au 1er étage), avec une table, des chaises, et un vidéo-projecteur : pas mal pour faire du code
 - la salle secrète (parfois appelée chambre des secrets) : bien pour les discussions intimes
 - la salle des marchés (au sous-sol) : la plus grande salle, celle qu’on utilise pour les plénières, avec des chaises, un vidéo-projecteur, elle est bien pour faire du code, un "PowerPoint karaoke", ou une taverne des pirates
 - le spa (au sous-sol) : piscine, sauna, hammam, douches, bien pour des sessions matinales de méditation, ou des discussions dans l’eau
@@ -232,7 +257,7 @@ Le matin, un petit déjeuner est proposé dans la salle au rez-de-chaussée de l
 
 Le déjeuner et le dîner ont lieu au Winstub, le restaurant de l’Hôtel Arnold, situé de l’autre côté de la rue.
 
-Pour le déjeuner, nous sommes attendus au restaurant à 12h30 (sauf le samedi où nous déjeunerons à 13h pour avoir le temps de faire la clôture).
+Pour le déjeuner, nous sommes attendus au restaurant à 12h30 (sauf le vendredi où nous déjeunerons à 13h pour avoir le temps de faire la clôture).
 
 Pour le dîner, nous sommes attendus au restaurant à 19h45.
 
@@ -243,49 +268,39 @@ Attention, il n’y a pas de déjeuner prévu le mardi midi. Pense donc à prend
 
 Des spécialités alsaciennes !
 
-Le restaurant nous propose des menus collectifs, mais si tu as un régime alimentaire spécifique, pas de problème, il suffit de leur en parler au le jour de ton arrivée.
+Le restaurant nous propose des menus collectifs, mais si tu as un régime alimentaire spécifique, pas de problème, il suffit de leur en parler au le jour de ton arrivée (ou de contacter le staff d’AOF en amont si ça te stresse un peu).
 
-Les menus definitifs ne sont pas encore confirmés, mais ça devrait ressembler à ceci (il y a toujours de la choucroute et du baeckeoffe) :
+Les menus definitifs ne sont pas encore confirmés, mais ça pourrait ressembler à ceci (il y a toujours de la choucroute et du baeckeoffe) :
 
-Mardi 23/1 soir :
-- Chèvre chaud sur toast, salade
-- Bœuf bourguignon, Purée de pomme de terre
-- Crème brûlée du moment
+Mardi soir :
+- Entrée : ½ tarte flambée (spécialité + favori)
+- Plat : Risotto aux légumes de saison (léger pour le soir)
+- Dessert : Tiramisu
 
-Mercredi 24/1 midi :
-- Vittelo Tonnato
-- 1/2 Coquelet au Riesling, Nouilles alsaciennes
-- Tarte du jour
+Mercredi midi :
+- Plat : Choucroute Royale (spécialité)
+- Dessert : Crumble de pomme (favori)
 
-Mercredi 24/1 soir :
-- Presskopf maison
-- Poisson sauce Parmentier, Coquillages
-- Brownie et boule de glace
+Mercredi soir :
+- Entrée : Cœur d'artichaut à la crème montée
+- Plat : Filet de poisson du marché, polenta
+- Dessert : Mousse au chocolat maison
 
-Jeudi 25/1 midi :
-- Crémeux de Champignons, Œuf mollet
-- Tête de Veau grillée, Crudités, Sauce gribiche
-- Mousse au Chocolat
+Jeudi midi :
+- Plat : Baeckeoffe aux 3 viandes (spécialité)
+- Dessert : Kougelhopf glacé au kirsch (spécialité)
 
-Jeudi 25/1 soir :
-- Galantine de Volaille
-- Jarret de Porc au Miel, pommes sautées
-- Nougat glacé
+Jeudi soir :
+- Entrée : Potage de légumes de saison (favori)
+- Plat : Lasagnes de légumes (favori)
+- Dessert : Brownie, boule de glace
 
-Vendredi 26/1 midi :
-- 1/2 Tarte flambée (normale ou gratinée)
-- Lasagnes maison de poisson, salade verte
-- Kougelhopf glacé au Kirsch
+Vendredi midi :
+- Entrée : Tarte à l'oignon
+- Plat : Poisson du marché, risotto de céleri
+- Dessert : Sorbet arrosé au Marc de Gewurztraminer (spécialité)
 
-Vendredi 26/1 soir :
-- Choucroute Royale et ses 8 garnitures
-- Sorbet arrosé au Marc de Gewurztraminer
-
-Samedi 27/1 midi :
-- Baeckeoffe aux 3 viandes, salade verte
-- Kougelhopf glacé au Kirsch
-
-Quelques alternatives végétariennes en remplacement d’un plat du menu  :
+Quelques alternatives végétariennes en remplacement d’un plat du menu :
 
 - Risotto de Légumes
 - Tarte flambée aux Légumes, Parmesan et Pesto
@@ -307,7 +322,7 @@ Le soir, dans le rétro lounge, une sélection de boissons est à disposition de
 
 ## Comment je m’habille ?
 
-Ça ne va peut-être pas durer, mais cette année, en Alsace, il va faire encore froid. Avec un peu de chance, il y aura même un peu de neige ! Pense à t’habiller en conséquence.
+Ça ne va peut-être pas durer, mais cette année, en Alsace, il va faire encore froid. Avec un peu de chance, il y aura même peut-être un peu de neige ! Pense à t’habiller en conséquence.
 
 Si tu veux profiter de la piscine, n’oublie pas ton maillot de bain.
 
@@ -351,34 +366,69 @@ Un apéro-débat a eu lieu le lendemain dans la salle des fêtes, mise à dispos
 
 Le leader présumé du mouvement aurait annoncé qu’en 2024, une année paire, les bipodocrates manifesteraient non pas "Contre", mais "Pour" (l’abolition du patriarcat).
 
+Aucune information n’a encore filtré sur une éventuelle action en 2025.
+
 
 ## Le code de conduite
 
-Les participant·e·s des précédentes éditions ont commencé à élaborer un code de conduite.
+### Intention
 
-Il sera affiché en salle des marchés.
+Nous souhaitons avant tout créer un espace où chacun·e peut explorer, expérimenter et apprendre, quel que soit son niveau d’expertise et son domaine. Et les expériences passées nous ont donné envie de faire un effort supplémentaire pour clarifier le cadre, et rendre l’événement aussi bienveillant et inclusif que possible.
 
-Il fait partie des outils qu’AOF se donne afin d’améliorer le sentiment de sécurité ainsi que la sécurité effective des personnes participantes, dans l’objectif est de rendre cet espace agréable et accueillant pour tous·tes.
+Nous avons l’intention que l’événément soit véritablement accessible et accueillant. Pour cela, nous mettons un maximum de dispositifs en place pour éviter de reproduire tous reflexes ou toutes normes, pratiques, paroles reflétant un mécanisme de domination, notamment patriarcale.
 
-Les points principaux du code de conduite élaboré en 2023 sont les suivants :
+### Infrastructure
 
-- En participant, vous vous engagez à respecter les participant⋅es, quels que soient leur âge, identité ou expression de genre, ethnicité, orientation sexuelle ou romantique, handicap, apparence, religion, statut économique... Mais aussi indépendamment de leurs choix technologiques et niveaux de compétences ou de connaissances.
+Nous avons décidé de formaliser/renforcer les dispositifs qui ont émergé les dernières éditions :
+- Une équipe dédiée au soutien et au bien-être des participant·e·s avec des personnes référentes clairement identifiées
+- Cette équipe portera notamment une attention particulière à l’inclusion des nouvelles venues et nouveaux venus
+- Des espaces et temps dédiés au ressourcement, avec par exemple des lieux calmes et des groupes de débriefs pour les personnes le souhaitant
 
-- Toute personne ayant des propos ou des comportements allant à l’encontre de ce principe sera considérée comme telle, et des mesures seront mises en place à son encontre. La sanction pouvant aller jusqu’à l’exclusion. en "fonction de la gravité de la chose".
+### Code de conduite
 
-- Une équipe de « référent⋅e·s » a été formée et est là pour être sollicitée en cas de besoin ou questions. N’hésitez pas à le faire, même bien après les faits.
+Nous avons aussi adapté le code de conduite. Nous nous attendons à ce qu’il soit lu attentivement, notamment pour vous permettre d’identifier en amont ce qui pourrait vous demander un effort pendant l’événement.
 
-- La responsabilité d’identifier les paroles et comportements problématiques est collective. La vigilance de tous⋅tes est bienvenue.
+Il va de soi que violer le code de conduite entrainera les sanctions proposées dans celui-ci, qui que vous soyez.
 
-- Le sentiment de sécurité passe aussi par d’autres principes, dont voici quelques exemples :
+Le code de conduite, disponible à l’inscription, intégrera ces éléments, et ces derniers seront exposés à l’ouverture de l’AOF25.
 
-   * Respectez les participant·es, leurs expériences et leurs différents points de vue.
+Le voici :
+
+Afin de rendre cet espace agréable et accueillant pour tous·tes, ce code de conduite fait partie des outils pour améliorer le sentiment de sécurité ainsi que la sécurité effective des personnes participant à l’Agile Open France.
+
+En participant à l’événement, vous vous engagez à respecter les participant⋅es, quels que soient leur âge, identité ou expression de genre, ethnicité, orientation sexuelle ou romantique, handicap, apparence, religion, statut économique… Mais aussi indépendamment de leurs choix technologiques et niveaux de compétences ou de connaissances.
+
+Tout propos ou comportement contraire au code de conduite sera pris en compte, et des mesures appropriées seront appliquées, pouvant inclure l’exclusion ou, si nécessaire, le signalement aux autorités compétentes.
+
+Une équipe de référent·e·s a été constituée et peut être sollicitée en cas de besoin ou questions. N’hésitez pas à le faire, même bien après les faits.
+
+La responsabilité d’identifier les paroles et comportements problématiques est collective. La vigilance de tous⋅tes est essentielle et vivement encouragée.
+
+Nous ne tolérons aucune forme de harcèlement des participant·es. Le harcèlement comprend, sans toutefois s’y limiter:
+
+   * Commentaires verbaux qui renforcent les structures sociales de domination, liés au genre, à l’identité et à l’expression de genre, à l’orientation sexuelle, au handicap, à l’apparence physique, à la taille, à l’origine, à l’âge, à la religion, aux choix technologiques.
+   * Images sexuelles dans les espaces publics
+   * Intimidation délibérée, harcèlement criminel ou suivi
+   * Photographie ou enregistrement forcé
+   * Perturbation prolongée des discussions ou d’autres événements
+   * Contact physique inapproprié
+   * Attention sexuelle inopportun
+   * Nudité dans les espaces publics
+   * Défendre ou encourager l’un des comportements ci-dessus
+
+Le sentiment de sécurité passe aussi par d’autres principes, dont voici quelques exemples :
+
+   * Respectez les participant·es, leurs expériences et leurs différents points de vue. Veillez notamment à ne pas interrompre les autres lorsqu’iels s’expriment.
+
    * Respectez les limites physiques et émotionnelles des personnes qui vous entourent, quelles que soient vos intentions. Cela implique de modifier vos comportements si une personne vous signifie que vous la mettez mal à l’aise.
+
    * Faites attention à l’espace que vous occupez, interrogez vos privilèges et vos préjugés.
-   * Les jurons et l’« humour » français sont souvent basés sur le sexisme ou l’homophobie. Ils ne sont pas acceptés. Veillez à votre langage ou soyez plus créatif⋅ves.
+
+   * Les jurons et l’« humour » sont souvent basés sur le sexisme ou l’homophobie. Ils ne sont pas acceptés. Veillez à votre langage ou soyez plus créatif⋅ves.
+
    * Soyez solidaires des personnes qui vous entourent. Proposez spontanément votre aide quand vous pensez que cela peut être utile. Respectez les personnes que vous aidez. Cherchez le consentement des personnes aidées avant d’agir.
 
-- Si vous en sentez le besoin, sentez-vous autorisé·e à faire des retours aux personnes allant à l’encontre de ces principes, éventuellement avec l’aide des "référents".
+Si vous en sentez le besoin, sentez-vous autorisé·e à faire des retours aux personnes allant à l’encontre de ces principes, éventuellement avec l’aide des membres de l’équipe de référent·e·s.
 
 Ce document est évolutif et établi collectivement par les membres des éditions précédentes.
 

@@ -10,7 +10,7 @@ from .messages import Thread
 
 
 # On utilise le modèle Claude 3.5 Sonnet, qui est actuellement le plus performant.
-DEFAULT_MODEL = "claude-3-5-sonnet-20240620"
+DEFAULT_MODEL = "claude-3-5-sonnet-latest"
 
 
 class RadoteurAnthropic(Radoteur):
